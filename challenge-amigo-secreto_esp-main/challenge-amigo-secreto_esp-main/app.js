@@ -3,7 +3,8 @@
 let ListaDeAmigoSecreto = [];
 let valorAmigo = "";
 let listaDeAmigo = "";
-
+let numeroAleatorio = 0;
+let resultadoAmigo = "";
 
 function agregarAmigo() {
       valorAmigo = document.querySelector("#valorDelAmigo").value;
@@ -21,19 +22,30 @@ function agregarAmigo() {
 function actualizarLista() {
  listaDeAmigo = document.getElementById("listaAmigos");
  listaDeAmigo.innerHTML = "";
-
+ //console.log(listaDeAmigo);
         //ListaDeAmigoSecreto = ['Renault', 'Peugeot', 'Tesla'];
     for (let i = 0; i < ListaDeAmigoSecreto.length; i++) {
          let nuevoElemento = document.createElement("li");
         nuevoElemento.textContent = ListaDeAmigoSecreto[i];
         listaDeAmigo.appendChild(nuevoElemento);
-       //ListaDeAmigoSecreto[0] = "<li>" + ListaDeAmigoSecreto[i] + "</li>";
-        //listaDeAmigoSecreto[0] va a ser igual a renault
-        //console.log('Ma marque de voiture préférée est : ' + voiture[i]);
-}
-//listaDeAmigo.innerHTML = ListaDeAmigoSecreto
+       
+  }
 } 
-//actualizarLista();
+
+function sortearAmigo(){
+  numeroAleatorio = Math.floor(Math.random()*ListaDeAmigoSecreto.length);
+  console.log(numeroAleatorio);
+  if (ListaDeAmigoSecreto.length == 0 ){
+    alert("Debe insertar un nombre para poder realizar el sorteo"); 
+  } else {
+    ListaDeAmigoSecreto[numeroAleatorio];
+    resultadoAmigo = document.querySelector("#resultado");
+    resultadoAmigo.innerHTML = "El ganador es " + ListaDeAmigoSecreto[numeroAleatorio];
+  }
+
+}
+
+
 
 
 
